@@ -11,6 +11,8 @@ public class GameHandler : MonoBehaviour
 
     public Transform cardWindow;
     public TMP_Text weekNumber;
+    public GameObject lossScreen;
+    public List<GameObject> lossScreenTexts = new List<GameObject>();
     public List<string> triggeredKeys = new List<string>();
     public HashSet<string> usedUniqueKeys = new HashSet<string>();
 
@@ -54,6 +56,12 @@ public class GameHandler : MonoBehaviour
         InstantiateCard(card.Item2, card.Item1);
     }
 
+    void LoseGame(int lossType)
+    {
+        lossScreen.SetActive(true);
+        lossScreenTexts[lossType].SetActive(true);
+    }
+
     void Update()
     {
 
@@ -74,9 +82,32 @@ public class GameHandler : MonoBehaviour
             investment.HandleInvestment();
         }
 
-        int mentalAdjust = (int)Math.Floor(statHandler.MentalHealthChange / 5);
-        int socialAdjust = (int)Math.Floor(statHandler.SocialStandingChange / 5);
-        int schoolAdjust = (int)Math.Floor(statHandler.SchoolPerformanceChange / 5);
+        if (statHandler.Money < 1)
+        {
+            LoseGame(0);
+            return;
+        }
+        if (statHandler.MentalHealth < 1)
+        {
+            LoseGame(1);
+            return;
+        }
+        if (statHandler.SocialStanding < 1)
+        {
+            LoseGame(2);
+            return;
+        }
+        if (statHandler.SchoolPerformance < 1)
+        {
+            LoseGame(3);
+            return;
+        }
+
+        Debug.Log($"MoneyChange: {statHandler.MoneyChange}, MentalHealthChange: {statHandler.MentalHealthChange}, SocialStandingChange: {statHandler.SocialStandingChange}, SchoolPerformanceChange: {statHandler.SchoolPerformanceChange}");
+
+        int mentalAdjust = statHandler.MentalHealthChange > 0 ? (int)Math.Floor((float)statHandler.MentalHealthChange / 8f) : (int)Math.Ceiling((float)statHandler.MentalHealthChange / 8f);
+        int socialAdjust = statHandler.SocialStandingChange > 0 ? (int)Math.Floor((float)statHandler.SocialStandingChange / 8f) : (int)Math.Ceiling((float)statHandler.SocialStandingChange / 8f);
+        int schoolAdjust = statHandler.SchoolPerformanceChange > 0 ? (int)Math.Floor((float)statHandler.SchoolPerformanceChange / 8f) : (int)Math.Ceiling((float)statHandler.SchoolPerformanceChange / 8f);
 
         statHandler.MentalHealthChange -= mentalAdjust;
         statHandler.SocialStandingChange -= socialAdjust;
@@ -101,15 +132,16 @@ public class GameHandler : MonoBehaviour
             usedUniqueKeys.Add(cardKey);
         }
 
-        List<EffectData> effects = choseRight ? card.right : card.left;
+        /*List<EffectData> effects = choseRight ? card.right : card.left;
         foreach (var effect in effects)
         {
             effect.action.Invoke();
-        }
+        }*/
     }
 
     private void InstantiateCard(CardData cardData, string cardKey)
     {
+        Debug.Log($"Next Up: {cardKey}");
         Prefabs.Card(cardWindow, cardData.title, cardData.description, cardData, cardKey);
     }
 }

@@ -164,13 +164,13 @@ public class DraggableCard : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         }
         if (currentLerp >= 0)
         {
-            GameHandler.instance.AdvanceTurn(cardData.right);
             GameHandler.instance.ChooseCard(cardKey, cardData, true);
+            GameHandler.instance.AdvanceTurn(cardData.right);
         }
         else
         {
-            GameHandler.instance.AdvanceTurn(cardData.left);
             GameHandler.instance.ChooseCard(cardKey, cardData, false);
+            GameHandler.instance.AdvanceTurn(cardData.left);
         }
         isDraggable = true;
         Destroy(this.gameObject, 0.1f);

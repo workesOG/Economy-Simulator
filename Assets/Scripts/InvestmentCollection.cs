@@ -28,6 +28,7 @@ public class Investment
 {
     public string Name { get; set; }
     public float Amount { get; set; }
+    public float Recurring { get; set; }
     public float Returns { get; set; }
     public int Rate { get; set; }
 
@@ -41,6 +42,8 @@ public class Investment
         {
             StatHandler statHandler = StatHandler.instance;
             statHandler.Money += (Amount * Returns) - Amount;
+            Amount += (Amount * Returns) - Amount;
+            Amount += Recurring;
             weeksPassed = 0;
         }
     }

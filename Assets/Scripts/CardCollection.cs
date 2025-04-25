@@ -174,10 +174,10 @@ public class CardCollection : MonoBehaviour
             },
             left = new List<EffectData>
             {
+                new EffectData() {positive = true, text = "More time for yourself and friends", action = () =>
+                { StatHandler.instance.MentalHealth += 4f; StatHandler.instance.SocialStanding += 4f; } },
                 new EffectData() {positive = false, text = "You fall behind on some topics", action = () =>
                 { StatHandler.instance.SchoolPerformance -= 10f; } },
-                new EffectData() {positive = false, text = "More time for yourself and friends", action = () =>
-                { StatHandler.instance.MentalHealth += 4f; StatHandler.instance.SocialStanding += 4f; } },
             },
         }},
         {"Help_A_Friend_Move", new CardData{
@@ -452,26 +452,26 @@ public class CardCollection : MonoBehaviour
                 { } },
             },
         }},
-        {"Laptop_Breaks", new CardData{
+        {"Laptop_Breaks", new CardData{ //Change
             title = "Laptop Breaks Down",
-            description = "Your laptop dies right before a deadline. Repairs are costly. What now?",
+            description = "Your laptop dies right before a deadline. Repairs are costly. Do you want to repair it?",
             imageID = "computer_crash",
             unique = true,
             investment = false,
             right = new List<EffectData>
             {
-                new EffectData() {positive = true, text = "You get it done", action = () =>
+                new EffectData() {positive = true, text = "You make the deadline", action = () =>
                 { StatHandler.instance.SchoolPerformance += 15f; } },
-                new EffectData() {positive = false, text = "The stress lingers", action = () =>
-                { StatHandler.instance.MentalHealth -= 25f; } },
                 new EffectData() {positive = false, text = "It's expensive", action = () =>
                 { StatHandler.instance.Money -= 300f; } },
+                new EffectData() {positive = false, text = "The stress lingers", action = () =>
+                { StatHandler.instance.MentalHealth -= 15f; } },
             },
             left = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "You save the money", action = () =>
                 {  } },
-                new EffectData() {positive = false, text = "The work is not as good", action = () =>
+                new EffectData() {positive = false, text = "The assignment is not delivered", action = () =>
                 { StatHandler.instance.SchoolPerformance -= 30f; } },
             },
         }},
@@ -586,13 +586,13 @@ public class CardCollection : MonoBehaviour
             title = "Buy Test Prep Course?",
             description = "A prep course for finals could help, but it's a little pricey. Worth the cost?",
             imageID = "prep_course",
-            unique = false,
-            investment = true,
+            unique = true,
+            investment = false,
             right = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "Boosts your exam confidence", action = () =>
                 { StatHandler.instance.SchoolPerformanceChange += 6f; } },
-                new EffectData() {positive = true, text = "You gotta spend money", action = () =>
+                new EffectData() {positive = false, text = "You gotta spend money", action = () =>
                 { StatHandler.instance.Money -= 180f; } },
             },
             left = new List<EffectData>
@@ -676,7 +676,7 @@ public class CardCollection : MonoBehaviour
             {
                 new EffectData() {positive = true, text = "You feel good helping out", action = () =>
                 { StatHandler.instance.MentalHealthChange += 6f; } },
-                new EffectData() {positive = true, text = "Need to cut back elsewhere", action = () =>
+                new EffectData() {positive = false, text = "Need to cut back elsewhere", action = () =>
                 { StatHandler.instance.Money -= 25f; } },
             },
             left = new List<EffectData>
@@ -741,9 +741,9 @@ public class CardCollection : MonoBehaviour
             right = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "It becomes a weekly highlight", action = () =>
-                { StatHandler.instance.SocialStandingChange += 7f; StatHandler.instance.SchoolPerformanceChange += 3f; } },
-                new EffectData() {positive = false, text = "Less time for rest", action = () =>
-                { StatHandler.instance.MentalHealthChange -= 2f; } },
+                { StatHandler.instance.SocialStandingChange += 7f; StatHandler.instance.MentalHealthChange += 3f; } },
+                new EffectData() {positive = false, text = "Less time on your hands", action = () =>
+                { StatHandler.instance.SchoolPerformanceChange -= 5f; } },
             },
             left = new List<EffectData>
             {
@@ -752,7 +752,7 @@ public class CardCollection : MonoBehaviour
             },
         }},
         {"Family_Dinner", new CardData{
-            title = "Family Invites You for Dinner",
+            title = "Family dinner invite",
             description = "Your parents invite you over for a home-cooked meal. Do you visit?",
             imageID = "family_dinner",
             unique = false,
@@ -878,7 +878,7 @@ public class CardCollection : MonoBehaviour
             },
         }},
         {"Smart_Youtube_Video", new CardData{
-            title = "Watch a 'Smart' YouTube Video?",
+            title = "Watch a 'Smart' Video?",
             description = "You’re meant to study, but that educational video looks interesting. Watch it instead?",
             imageID = "smart_youtube_video",
             unique = false,
@@ -920,7 +920,7 @@ public class CardCollection : MonoBehaviour
             },
         }},
         {"Casino_Night", new CardData{
-            title = "Try Your Luck at the Casino?",
+            title = "Test your luck?",
             description = "Your friends are going to the casino for fun. You’ve got a bit of extra cash. Do you join them?",
             imageID = "casino_night",
             unique = false,
@@ -928,7 +928,7 @@ public class CardCollection : MonoBehaviour
             right = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "Thrill and laughs with friends", action = () =>
-                { StatHandler.instance.MentalHealth += 7f; StatHandler.instance.SocialStanding += 4f; } },
+                { StatHandler.instance.MentalHealth += 10f; StatHandler.instance.SocialStanding += 7f; } },
                 new EffectData() {positive = false, text = "The losses sting later", action = () =>
                 { StatHandler.instance.Money -= 60f; StatHandler.instance.MoneyChange -= 8f; } },
             },
@@ -937,7 +937,7 @@ public class CardCollection : MonoBehaviour
                 new EffectData() {positive = true, text = "You play it safe and skip it", action = () =>
                 { StatHandler.instance.Money += 10f; } },
                 new EffectData() {positive = false, text = "You miss out on social time", action = () =>
-                { StatHandler.instance.SocialStanding -= 3f; } },
+                { StatHandler.instance.SocialStanding -= 10f; } },
             },
         }},
         {"Airbnb_Cleaning_Gig", new CardData{
@@ -1100,7 +1100,7 @@ public class CardCollection : MonoBehaviour
             description = "Your friends loved your cooking. They ask if you’ll do it every week. Say yes?",
             imageID = "weekly_meal_prep",
             unique = true,
-            investment = true,
+            investment = false,
             requiredTrigger = "meal_prep_mastered",
             right = new List<EffectData>
             {
@@ -1117,6 +1117,123 @@ public class CardCollection : MonoBehaviour
                 { } },
                 new EffectData() {positive = false, text = "Friends are a bit disappointed", action = () =>
                 { StatHandler.instance.SocialStanding -= 8f; } },
+            },
+        }},
+        {"Friend_Offered_Investment", new CardData{
+            title = "Recommended investment",
+            description = "A pretty experienced trader friend of yours has given you a recommendation for an investment. Wanna give it a go?",
+            imageID = "friend_offered_investment",
+            unique = true,
+            investment = true,
+            right = new List<EffectData>
+            {
+                new EffectData() {positive = true, text = "It'll probably pay off well", action = () =>
+                {
+                    StatHandler.instance.Investments.Add(new Investment()
+                    {
+                        Name = "Friend's Investment Oppertunity",
+                        Amount = 600,
+                        Recurring = 0,
+                        Returns = 1.05f,
+                        Rate = 3,
+                    });
+                } },
+                new EffectData() {positive = false, text = "It's a pricey investment", action = () =>
+                { StatHandler.instance.Money -= 600f;  } },
+            },
+            left = new List<EffectData>
+            {
+                new EffectData() {positive = true, text = "Avoid spending your money", action = () =>
+                { } },
+                new EffectData() {positive = false, text = "It's a one-time oppertunity", action = () =>
+                { StatHandler.instance.MentalHealth -= 10; } },
+            },
+        }},
+        {"Invest_Local_Cafe", new CardData{
+            title = "Invest in Local Café?",
+            description = "A classmate’s cousin is opening a café and offers you a small stake. Interested?",
+            imageID = "invest_local_cafe",
+            unique = true,
+            investment = true,
+            right = new List<EffectData>
+            {
+                new EffectData() {positive = true, text = "Could grow with the neighborhood", action = () =>
+                {
+                    StatHandler.instance.Investments.Add(new Investment()
+                    {
+                        Name = "Café Investment",
+                        Amount = 800,
+                        Recurring = 0,
+                        Returns = 1.08f,
+                        Rate = 4,
+                    });
+                } },
+                new EffectData() {positive = false, text = "Is a sizable investment", action = () =>
+                { StatHandler.instance.Money -= 800f; } },
+            },
+            left = new List<EffectData>
+            {
+                new EffectData() {positive = true, text = "Avoid risky ventures", action = () => { } },
+                new EffectData() {positive = false, text = "It might’ve become the next hotspot", action = () =>
+                { StatHandler.instance.MentalHealth -= 8f; } },
+            },
+        }},
+        {"Invest_3D_Printer", new CardData{
+            title = "Buy a 3D Printer?",
+            description = "You can buy a 3D printer cheap and sell custom prints online. Worth the setup?",
+            imageID = "3d_printer_investment",
+            unique = true,
+            investment = true,
+            right = new List<EffectData>
+            {
+                new EffectData() {positive = true, text = "Could be a nice side income", action = () =>
+                {
+                    StatHandler.instance.Investments.Add(new Investment()
+                    {
+                        Name = "3D Printing Side Hustle",
+                        Amount = 1000,
+                        Recurring = 0,
+                        Returns = 1.06f,
+                        Rate = 3,
+                    });
+                } },
+                new EffectData() {positive = false, text = "3D printers are expensive", action = () =>
+                { StatHandler.instance.Money -= 1000f; } },
+            },
+            left = new List<EffectData>
+            {
+                new EffectData() {positive = true, text = "You don’t take the risk", action = () => { } },
+                new EffectData() {positive = false, text = "You might regret not trying", action = () =>
+                { StatHandler.instance.MentalHealth -= 12f; } },
+            },
+        }},
+        {"Micro_Invest_App", new CardData{
+            title = "Use Micro-Investment App?",
+            description = "A new app invests a small amount of your weekly income. Returns grow over time. Try it?",
+            imageID = "micro_invest_app",
+            unique = true,
+            investment = true,
+            right = new List<EffectData>
+            {
+                new EffectData() {positive = true, text = "Effortless growth", action = () =>
+                {
+                    StatHandler.instance.Investments.Add(new Investment()
+                    {
+                        Name = "Micro-Invest App",
+                        Amount = 100,
+                        Recurring = 50,
+                        Returns = 1.03f,
+                        Rate = 2,
+                    });
+                } },
+                new EffectData() {positive = false, text = "It chips away on weekly income", action = () =>
+                { StatHandler.instance.Money -= 100f; StatHandler.instance.MoneyChange -= 50f; } },
+            },
+            left = new List<EffectData>
+            {
+                new EffectData() {positive = true, text = "You keep things simple", action = () => { } },
+                new EffectData() {positive = false, text = "You might miss easy gains", action = () =>
+                { StatHandler.instance.MentalHealth -= 5f; } },
             },
         }},
     };

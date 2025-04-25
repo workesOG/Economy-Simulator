@@ -50,8 +50,8 @@ public class Prefabs : MonoBehaviour
         public static GameObject Positive(string text)
         {
             GameObject go = instance._effect;
-            go.transform.Find("Indicator").GetComponent<TMP_Text>().text = "<color=#35f67fff>▲</color>";
-            go.transform.Find("Text").GetComponent<TMP_Text>().text = $"<color=#35f67fff>{text}</color>";
+            go.transform.Find("Indicator").GetComponent<TMP_Text>().text = "<color=#139F27ff>▲</color>";
+            go.transform.Find("Text").GetComponent<TMP_Text>().text = $"<color=#139F27ff>{text}</color>";
             return go;
         }
 
@@ -64,12 +64,12 @@ public class Prefabs : MonoBehaviour
         }
     }
 
-    public static GameObject Card(Transform window, string title, string description, Sprite image, CardData cardData, string cardKey)
+    public static GameObject Card(Transform window, string title, string description, CardData cardData, string cardKey)
     {
         GameObject go = Instantiate(instance._card, window, false);
         go.transform.Find("Title").GetComponent<TMP_Text>().text = title;
         go.transform.Find("Description").GetComponent<TMP_Text>().text = description;
-        go.transform.Find("Image Mask/Image").GetComponent<Image>().sprite = image;
+        go.transform.Find("Image Mask/Image").GetComponent<Image>().sprite = CardImage.instance.FindSprite(cardData.imageID);
         go.GetComponent<DraggableCard>().Initialize(cardData, cardKey);
         Transform contentWindow = go.transform.Find("Scroll View/Viewport/Content").transform;
 

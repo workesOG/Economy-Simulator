@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class GameHandler : MonoBehaviour
@@ -37,15 +39,15 @@ public class GameHandler : MonoBehaviour
     void BeginGame()
     {
         StatHandler statHandler = StatHandler.instance;
-        statHandler.Money = Random.Range(750, 1251);
+        statHandler.Money = UnityEngine.Random.Range(2250, 2751);
         statHandler.Investments = new List<Investment>();
-        statHandler.MentalHealth = Random.Range(600, 700);
-        statHandler.SocialStanding = Random.Range(600, 700);
-        statHandler.SchoolPerformance = Random.Range(600, 700);
+        statHandler.MentalHealth = UnityEngine.Random.Range(600, 700);
+        statHandler.SocialStanding = UnityEngine.Random.Range(600, 700);
+        statHandler.SchoolPerformance = UnityEngine.Random.Range(600, 700);
         statHandler.MoneyChange = 20;
-        statHandler.MentalHealthChange = -10;
-        statHandler.SocialStandingChange = -10;
-        statHandler.SchoolPerformanceChange = -10;
+        statHandler.MentalHealthChange = -5;
+        statHandler.SocialStandingChange = -5;
+        statHandler.SchoolPerformanceChange = -5;
         Turn = 1;
 
         (string, CardData) card = ((string, CardData))CardCollection.instance.GetNextCard(triggeredKeys, usedUniqueKeys);
@@ -71,6 +73,15 @@ public class GameHandler : MonoBehaviour
         {
             investment.HandleInvestment();
         }
+
+        int mentalAdjust = (int)Math.Floor(statHandler.MentalHealthChange / 5);
+        int socialAdjust = (int)Math.Floor(statHandler.SocialStandingChange / 5);
+        int schoolAdjust = (int)Math.Floor(statHandler.SchoolPerformanceChange / 5);
+
+        statHandler.MentalHealthChange -= mentalAdjust;
+        statHandler.SocialStandingChange -= socialAdjust;
+        statHandler.SchoolPerformanceChange -= schoolAdjust;
+
         statHandler.Money += statHandler.MoneyChange;
         statHandler.MentalHealth += statHandler.MentalHealthChange;
         statHandler.SocialStanding += statHandler.SocialStandingChange;
@@ -99,6 +110,6 @@ public class GameHandler : MonoBehaviour
 
     private void InstantiateCard(CardData cardData, string cardKey)
     {
-        Prefabs.Card(cardWindow, cardData.title, cardData.description, CardImage.Cafe, cardData, cardKey);
+        Prefabs.Card(cardWindow, cardData.title, cardData.description, cardData, cardKey);
     }
 }

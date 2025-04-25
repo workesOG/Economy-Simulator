@@ -187,6 +187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardWindow: {fileID: 281005692}
   weekNumber: {fileID: 692037482}
+  triggeredKeys: []
 --- !u!114 &7386594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,7 +200,111 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3e74b80ffa27df47a0d113c385d5d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cafe: {fileID: 21300000, guid: 3971000150025e0488bc535da2d5041f, type: 3}
+  sprites:
+  - identifier: restaurant
+    sprite: {fileID: 21300000, guid: 6a3669113028ead41a19777af800bf2d, type: 3}
+  - identifier: used_car
+    sprite: {fileID: 21300000, guid: a09e0c5be245c134aa5711b96d590cc6, type: 3}
+  - identifier: student_job
+    sprite: {fileID: 21300000, guid: 95375ac0c9bfdaa4ea16fac0f68100bd, type: 3}
+  - identifier: extra_shifts
+    sprite: {fileID: 21300000, guid: 261e41876b42ef342ad42513a828dc1c, type: 3}
+  - identifier: more_hours
+    sprite: {fileID: 21300000, guid: a2789ad3d774fc846af283727a37c057, type: 3}
+  - identifier: skip_breakfast
+    sprite: {fileID: 21300000, guid: 939260279b8fb924087c14bacb384323, type: 3}
+  - identifier: clean_room
+    sprite: {fileID: 21300000, guid: ed4a82055b3a6aa42990ab87ab09cca8, type: 3}
+  - identifier: help_friend_move
+    sprite: {fileID: 21300000, guid: 63123e0cfab402b4097eadab2ba325ba, type: 3}
+  - identifier: student_account
+    sprite: {fileID: 21300000, guid: 6ab31ef24f78f6040970143d339b3fb7, type: 3}
+  - identifier: study_group
+    sprite: {fileID: 21300000, guid: 5c119c60a29570444958bf094b1958ad, type: 3}
+  - identifier: generic_products
+    sprite: {fileID: 21300000, guid: 9ef3a5e520a6e25428669198b3fed957, type: 3}
+  - identifier: buy_new_laptop
+    sprite: {fileID: 21300000, guid: 7bc26d66fb41d5c44b8073933a6b1d0c, type: 3}
+  - identifier: meal_prep
+    sprite: {fileID: 21300000, guid: ac6591987faa11743bd8425ca31ab807, type: 3}
+  - identifier: keep_subscription
+    sprite: {fileID: 21300000, guid: 59a80c917181ffd4196475f00c3a6888, type: 3}
+  - identifier: buy_bulk
+    sprite: {fileID: 21300000, guid: cb047c58e7cb78d4cb46e66ce3c34800, type: 3}
+  - identifier: cheap_haircut
+    sprite: {fileID: 21300000, guid: 74b9bbd1f82357f47b9d31d252105067, type: 3}
+  - identifier: laundry_at_friends
+    sprite: {fileID: 21300000, guid: 34929320c9d506545bf6b0009fa0ec17, type: 3}
+  - identifier: gift_for_friend
+    sprite: {fileID: 21300000, guid: 406e82fd50cc1ec4da6c90661c7daa49, type: 3}
+  - identifier: club_membership
+    sprite: {fileID: 21300000, guid: c2d0fa9513f67ad408e757c8a3db2919, type: 3}
+  - identifier: sell_books
+    sprite: {fileID: 21300000, guid: e5a0872f5184f3743b11ee3e485423db, type: 3}
+  - identifier: bank_refund
+    sprite: {fileID: 21300000, guid: ba3a8934de160b143923b65da3749c7f, type: 3}
+  - identifier: computer_crash
+    sprite: {fileID: 21300000, guid: 21b1404aa3394884fa1e4fe2202a88ef, type: 3}
+  - identifier: stock_up_during_sale
+    sprite: {fileID: 21300000, guid: c55cab295637f3a47b387908376f5653, type: 3}
+  - identifier: pizza_party
+    sprite: {fileID: 21300000, guid: 3c3cdf9d78d9f1f4a89af22fc298d0b4, type: 3}
+  - identifier: budgeting_app
+    sprite: {fileID: 21300000, guid: ccb2f4fcf7ee12144b9f5afe3c4aa572, type: 3}
+  - identifier: fancy_groceries
+    sprite: {fileID: 21300000, guid: 991e39bcf717e9a439ef877ffcdadfdc, type: 3}
+  - identifier: ignore_fine
+    sprite: {fileID: 21300000, guid: 87aef46d3b76a9142a7ddfaa8126b565, type: 3}
+  - identifier: prep_course
+    sprite: {fileID: 21300000, guid: 4c31f31f63afa9441bea6eb92a84d936, type: 3}
+  - identifier: skip_groceries
+    sprite: {fileID: 21300000, guid: 0b80b88baca28e949a6f4fc1bbb268a1, type: 3}
+  - identifier: buy_cheap_chair
+    sprite: {fileID: 21300000, guid: 62c025e60204dc24bb832fc188adf46b, type: 3}
+  - identifier: pay_bills
+    sprite: {fileID: 21300000, guid: 8092422afb565484eae3e37af70e0713, type: 3}
+  - identifier: donate_to_fundraiser
+    sprite: {fileID: 21300000, guid: a7afb2b0c8c1d984390b941f1316c80d, type: 3}
+  - identifier: cleaning_services
+    sprite: {fileID: 21300000, guid: d47ce804e9dc52146a0c6b5a4a9da3ea, type: 3}
+  - identifier: help_uncle_move
+    sprite: {fileID: 21300000, guid: c4a90c1ea48365d40843a6c5cadcacf9, type: 3}
+  - identifier: join_dnd_club
+    sprite: {fileID: 21300000, guid: 5933089471235ef439a104070193e029, type: 3}
+  - identifier: family_dinner
+    sprite: {fileID: 21300000, guid: 57719c728f143d64ea110f9e53362ec9, type: 3}
+  - identifier: join_theatre_group
+    sprite: {fileID: 21300000, guid: cbcfdbc2803d40c47884fba4e63831e4, type: 3}
+  - identifier: clean_airbnb
+    sprite: {fileID: 21300000, guid: c0db6e193bc1da04b824efedc283e8ec, type: 3}
+  - identifier: sneaker_flip_scheme
+    sprite: {fileID: 21300000, guid: 40438aaf0b02662489d003804e669ed6, type: 3}
+  - identifier: all_nighter_plan
+    sprite: {fileID: 21300000, guid: 51cb7e6464a1bf04c9f170c6008b8083, type: 3}
+  - identifier: group_teasing
+    sprite: {fileID: 21300000, guid: 0e4b5023acc797c4180378fec1c93a7a, type: 3}
+  - identifier: smart_youtube_video
+    sprite: {fileID: 21300000, guid: ccf9235f7b1b8204d86bace3b4e9a2c1, type: 3}
+  - identifier: limited_time_meal_deal
+    sprite: {fileID: 21300000, guid: 5478ccb3570d40d47ae8c4451b7663ca, type: 3}
+  - identifier: casino_night
+    sprite: {fileID: 21300000, guid: 76d53fb4e58a3524d8dbae3191914fd3, type: 3}
+  - identifier: airbnb_regular_cleaning
+    sprite: {fileID: 21300000, guid: de2425b5bd3400344890bcd5401d291a, type: 3}
+  - identifier: study_club_leader
+    sprite: {fileID: 21300000, guid: 317de36ad7b563747a4ef39ce879f856, type: 3}
+  - identifier: drive_friends
+    sprite: {fileID: 21300000, guid: 09841480939e56c48abf0293b5f380b2, type: 3}
+  - identifier: start_dnd_campaign
+    sprite: {fileID: 21300000, guid: c1604d3d54851c94f84a491e0bcc25f5, type: 3}
+  - identifier: negotiate_raise
+    sprite: {fileID: 21300000, guid: 70d747bb3c25b0545b509b6ea43bbf5a, type: 3}
+  - identifier: tutoring_program
+    sprite: {fileID: 21300000, guid: 99f69ca63d0cba3488234e40c48ff859, type: 3}
+  - identifier: school_play
+    sprite: {fileID: 21300000, guid: 1aa5ac774e9c43c4d9f11910186d6311, type: 3}
+  - identifier: weekly_meal_prep
+    sprite: {fileID: 21300000, guid: 2ace16e71019204428c865b20c2f82bf, type: 3}
 --- !u!114 &7386595
 MonoBehaviour:
   m_ObjectHideFlags: 0

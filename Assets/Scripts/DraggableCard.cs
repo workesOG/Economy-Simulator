@@ -173,5 +173,6 @@ public class DraggableCard : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
             GameHandler.instance.ChooseCard(cardKey, cardData, false);
         }
         isDraggable = true;
+        Destroy(this.gameObject, 0.1f);
     }
 }

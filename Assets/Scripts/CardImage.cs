@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CardImage : MonoBehaviour
@@ -12,10 +14,17 @@ public class CardImage : MonoBehaviour
             instance = this;
     }
 
-    public Sprite _cafe;
-    public static Sprite Cafe
+    public Sprite FindSprite(string imageID)
     {
-        get { return instance._cafe; }
-        private set { }
+        return sprites.Where(x => x.identifier == imageID).FirstOrDefault().sprite;
     }
+
+    public List<SpriteEntry> sprites = new List<SpriteEntry>();
+}
+
+[Serializable]
+public class SpriteEntry
+{
+    public string identifier;
+    public Sprite sprite;
 }

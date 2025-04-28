@@ -1119,7 +1119,87 @@ public class CardCollection : MonoBehaviour
                 { StatHandler.instance.SocialStanding -= 8f; } },
             },
         }},
-        {"Friend_Offered_Investment", new CardData{
+        {"Join_Fitness_Club", new CardData{
+            title = "Join a Fitness Club?",
+            description = "You found a cheap student gym membership. It could boost your energy. Join?",
+            imageID = "fitness_membership",
+            unique = true,
+            investment = false,
+            right = new List<EffectData>
+            {
+                new EffectData() {positive = true, text = "Regular workouts clear your head", action = () =>
+                { StatHandler.instance.MentalHealthChange += 6f; } },
+                new EffectData() {positive = false, text = "Ongoing payment", action = () =>
+                { StatHandler.instance.MoneyChange -= 15f; } },
+            },
+            left = new List<EffectData>
+            {
+                new EffectData() {positive = true, text = "Save the membership cost", action = () => { } },
+                new EffectData() {positive = false, text = "Miss a chance to boost health", action = () =>
+                { StatHandler.instance.MentalHealth -= 10f; } },
+            },
+        }},
+        {"Nature_Walk_Habit", new CardData{
+            title = "Start Nature Walks?",
+            description = "You find a peaceful park nearby. Commit to weekly nature walks?",
+            imageID = "nature_walks",
+            unique = true,
+            investment = false,
+            right = new List<EffectData>
+            {
+                new EffectData() {positive = true, text = "Nature heals the mind", action = () =>
+                { StatHandler.instance.MentalHealthChange += 5f; } },
+                new EffectData() {positive = false, text = "Slight missed study and friend time", action = () =>
+                { StatHandler.instance.SchoolPerformanceChange -= 1f; StatHandler.instance.SocialStandingChange -= 1f; } },
+            },
+            left = new List<EffectData>
+            {
+                new EffectData() {positive = true, text = "No new habits formed", action = () => { } },
+                new EffectData() {positive = false, text = "You miss peaceful downtime", action = () =>
+                { StatHandler.instance.MentalHealth -= 8f; } },
+            },
+        }},
+        {"Join_Meditation_Group", new CardData{
+            title = "Join Meditation Group?",
+            description = "A meditation group meets weekly at school. It has a membership fee. Would you join?",
+            imageID = "meditation_group",
+            unique = true,
+            investment = false,
+            right = new List<EffectData>
+            {
+                new EffectData() {positive = true, text = "You become more balanced", action = () =>
+                { StatHandler.instance.MentalHealthChange += 7f; } },
+                new EffectData() {positive = true, text = "Small weekly membership fee", action = () =>
+                { StatHandler.instance.MoneyChange -= 10f; } },
+            },
+            left = new List<EffectData>
+            {
+                new EffectData() {positive = true, text = "Save your money", action = () => { } },
+                new EffectData() {positive = false, text = "High stress remains", action = () =>
+                { StatHandler.instance.MentalHealth -= 10f; } },
+            },
+        }},
+        {"Buy_Study_Desk", new CardData{
+            title = "Buy a Better Study Desk?",
+            description = "Your current desk is terrible. A sturdy new one could help studying. Buy it?",
+            imageID = "buy_study_desk",
+            unique = true,
+            investment = false,
+            right = new List<EffectData>
+            {
+                new EffectData() {positive = true, text = "Better posture, better focus", action = () =>
+                { StatHandler.instance.SchoolPerformanceChange += 6f; } },
+                new EffectData() {positive = false, text = "High quality is expensive", action = () =>
+                { StatHandler.instance.Money -= 180f; } },
+            },
+            left = new List<EffectData>
+            {
+                new EffectData() {positive = true, text = "You save your money", action = () => { } },
+                new EffectData() {positive = false, text = "Long hours stay uncomfortable", action = () =>
+                { StatHandler.instance.SchoolPerformance -= 10f; } },
+            },
+        }},
+        { "Friend_Offered_Investment", new CardData{
             title = "Recommended investment",
             description = "A pretty experienced trader friend of yours has given you a recommendation for an investment. Wanna give it a go?",
             imageID = "friend_offered_investment",

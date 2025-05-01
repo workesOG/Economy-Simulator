@@ -19,6 +19,7 @@ public class GameHandler : MonoBehaviour
     public int turns;
     public Transform cardWindow;
     public TMP_Text weekNumber;
+    public List<TMP_Text> statIndicators = new List<TMP_Text>();
     public GameObject lossScreen;
     public List<GameObject> lossScreenTexts = new List<GameObject>();
     public GameObject helpScreen;
@@ -63,6 +64,7 @@ public class GameHandler : MonoBehaviour
         statHandler.MentalHealthChange = -5;
         statHandler.SocialStandingChange = -5;
         statHandler.SchoolPerformanceChange = -5;
+        UpdateStatIndicators();
         Turn = 1;
 
         (string, CardData) card = ((string, CardData))CardCollection.instance.GetNextCard(triggeredKeys, usedUniqueKeys);
@@ -134,6 +136,8 @@ public class GameHandler : MonoBehaviour
         statHandler.SocialStandingChange -= socialAdjust;
         statHandler.SchoolPerformanceChange -= schoolAdjust;
 
+        UpdateStatIndicators();
+
         statHandler.Money += statHandler.MoneyChange;
         statHandler.MentalHealth += statHandler.MentalHealthChange;
         statHandler.SocialStanding += statHandler.SocialStandingChange;
@@ -181,7 +185,7 @@ public class GameHandler : MonoBehaviour
         winScreenTexts[3].text = $"School Performance Outcome: {GetGrade(statHandler.SchoolPerformance, 0, 1000)}";
 
         float combinedScore = statHandler.MentalHealth + statHandler.SocialStanding + statHandler.SchoolPerformance;
-        combinedScore += (float)(statHandler.Money * (1 + 0.5 * statHandler.Investments.Count)) / 10;
+        combinedScore += Math.Min((float)(statHandler.Money * (1 + 0.5 * statHandler.Investments.Count)) / 10, 2000);
         winScreenTexts[4].text = $"Overall Performance: {GetGrade(combinedScore, 0, 5000)}";
 
         winScreenInvestments.text = new string('•', statHandler.Investments.Count);
@@ -197,6 +201,27 @@ public class GameHandler : MonoBehaviour
     public void HideHelpScreen()
     {
         helpScreen.SetActive(false);
+    }
+
+    public void UpdateStatIndicators()
+    {
+        StatHandler statHandler = StatHandler.instance;
+        statIndicators[0].text = $"{GetArrowString(statHandler.MoneyChange / 10)}";
+        statIndicators[1].text = $"{GetArrowString(statHandler.MentalHealthChange)}";
+        statIndicators[2].text = $"{GetArrowString(statHandler.SocialStandingChange)}";
+        statIndicators[3].text = $"{GetArrowString(statHandler.SchoolPerformanceChange)}";
+    }
+
+    private string GetArrowString(float change)
+    {
+        if (change == 0) return "";
+
+        string arrow = change > 0 ? "<color=#139F27ff>▲</color>" : "<color=#f6354fff>▼</color>";
+        float absChange = Mathf.Abs(change);
+
+        if (absChange <= 6) return arrow;
+        if (absChange <= 12) return arrow + arrow;
+        return arrow + arrow + arrow;
     }
 
     public string GetGrade(float value, float worst, float best)
@@ -270,10 +295,10 @@ public class GameHandler : MonoBehaviour
             return "While academic results were lacking, you established real-world success early. Knowledge can still be built over time.";
 
         if (economyBad)
-            return "You struggled to secure financial stability. Without a solid economic foundation, the years ahead may be more challenging — but it’s never too late to learn and improve.";
+            return "You struggled to secure financial stability. Without a solid economic foundation, the years ahead may be more challenging — but it's never too late to learn and improve.";
 
         if (mentalGood)
-            return "You step into adulthood with resilience and inner strength — a priceless foundation for what’s to come.";
+            return "You step into adulthood with resilience and inner strength — a priceless foundation for what's to come.";
 
         if (socialGood)
             return "You forged strong relationships early — an invaluable support for the years ahead.";

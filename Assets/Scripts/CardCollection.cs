@@ -24,7 +24,7 @@ public class CardCollection : MonoBehaviour
             right = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "It'll be fun!", action = () =>
-                { StatHandler.instance.SocialStanding += 22; StatHandler.instance.MentalHealth += 12; } },
+                { StatHandler.instance.SocialStanding += 22; StatHandler.instance.MentalHealth += 15; } },
                 new EffectData() {positive = false, text = "It's not the cheapest restaurant", action = () =>
                 { StatHandler.instance.Money -= 25;} },
             },
@@ -33,7 +33,7 @@ public class CardCollection : MonoBehaviour
                 new EffectData() {positive = true, text = "Nice and cheap", action = () =>
                 { StatHandler.instance.Money -= 5; } },
                 new EffectData() {positive = false, text = "Quite boring", action = () =>
-                { StatHandler.instance.SocialStanding -= 14; StatHandler.instance.MentalHealth -= 7; } },
+                { StatHandler.instance.SocialStanding -= 14; StatHandler.instance.MentalHealth -= 5; } },
             },
         }},
         {"Buy_Used_Car", new CardData{
@@ -46,7 +46,7 @@ public class CardCollection : MonoBehaviour
             right = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "Freedom and independence", action = () =>
-                { StatHandler.instance.MentalHealthChange += 10f; StatHandler.instance.SocialStandingChange += 6f; } },
+                { StatHandler.instance.MentalHealthChange += 12f; StatHandler.instance.SocialStandingChange += 6f; } },
                 new EffectData() {positive = false, text = "Ongoing costs and upfront payment", action = () =>
                 { StatHandler.instance.Money -= 2000; StatHandler.instance.MoneyChange -= 50f; } },
             },
@@ -55,7 +55,7 @@ public class CardCollection : MonoBehaviour
                 new EffectData() {positive = true, text = "Save money for other needs", action = () =>
                 { } },
                 new EffectData() {positive = false, text = "Still stuck with public transport", action = () =>
-                { StatHandler.instance.MentalHealth -= 15f; } },
+                { StatHandler.instance.MentalHealth -= 12f; } },
             },
         }},
         {"Get_Student_Job", new CardData{
@@ -70,7 +70,7 @@ public class CardCollection : MonoBehaviour
                 new EffectData() {positive = true, text = "Steady side income", action = () =>
                 { StatHandler.instance.MoneyChange += 75f; } },
                 new EffectData() {positive = false, text = "Less free time and energy", action = () =>
-                { StatHandler.instance.MentalHealthChange -= 5f; StatHandler.instance.SchoolPerformanceChange -= 3f; } },
+                { StatHandler.instance.MentalHealthChange -= 4f; StatHandler.instance.SchoolPerformanceChange -= 3f; } },
             },
             left = new List<EffectData>
             {
@@ -90,7 +90,7 @@ public class CardCollection : MonoBehaviour
                 new EffectData() {positive = true, text = "Nice cash boost", action = () =>
                 { StatHandler.instance.Money += 120f; } },
                 new EffectData() {positive = false, text = "You're more tired than usual", action = () =>
-                { StatHandler.instance.MentalHealth -= 12f; StatHandler.instance.SchoolPerformance -= 8f; } },
+                { StatHandler.instance.MentalHealth -= 10f; StatHandler.instance.SchoolPerformance -= 8f; } },
             },
             left = new List<EffectData>
             {
@@ -100,7 +100,7 @@ public class CardCollection : MonoBehaviour
         }},
         {"Take_On_More_Hours", new CardData{
             title = "Take On More Hours?",
-            description = "You've been offered more hours at work. It’s not a lot, but it adds up. Do you accept?",
+            description = "You've been offered more hours at work. It's not a lot, but it adds up. Do you accept?",
             imageID = "more_hours",
             unique = true,
             investment = false,
@@ -110,7 +110,7 @@ public class CardCollection : MonoBehaviour
                 new EffectData() {positive = true, text = "More weekly income", action = () =>
                 { StatHandler.instance.MoneyChange += 40f; } },
                 new EffectData() {positive = false, text = "More stress and less study time", action = () =>
-                { StatHandler.instance.MentalHealthChange -= 3f; StatHandler.instance.SchoolPerformanceChange -= 2f; } },
+                { StatHandler.instance.MentalHealthChange -= 2f; StatHandler.instance.SchoolPerformanceChange -= 2f; } },
             },
             left = new List<EffectData>
             {
@@ -127,7 +127,7 @@ public class CardCollection : MonoBehaviour
             right = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "Save a few minutes", action = () =>
-                { StatHandler.instance.MentalHealth += 4f; } },
+                { StatHandler.instance.MentalHealth += 5f; } },
                 new EffectData() {positive = false, text = "Low energy all morning", action = () =>
                 { StatHandler.instance.SchoolPerformance -= 12f; } },
             },
@@ -139,14 +139,14 @@ public class CardCollection : MonoBehaviour
         }},
         {"Clean_Your_Room", new CardData{
             title = "Clean Your Room?",
-            description = "Your room’s a mess. You could clean now or leave it for later. What do you do?",
+            description = "Your room's a mess. You could clean now or leave it for later. What do you do?",
             imageID = "clean_room",
             unique = false,
             investment = false,
             right = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "Feels fresh and organized", action = () =>
-                { StatHandler.instance.MentalHealth += 15f; } },
+                { StatHandler.instance.MentalHealth += 18f; } },
                 new EffectData() {positive = false, text = "Takes time from studying", action = () =>
                 { StatHandler.instance.SchoolPerformance -= 8f; } },
             },
@@ -155,12 +155,12 @@ public class CardCollection : MonoBehaviour
                 new EffectData() {positive = true, text = "Time for studying", action = () =>
                 { StatHandler.instance.SchoolPerformance += 15f; } },
                 new EffectData() {positive = false, text = "The mess stresses you out", action = () =>
-                { StatHandler.instance.MentalHealth -= 8f; } },
+                { StatHandler.instance.MentalHealth -= 6f; } },
             },
         }},
         {"Join_Study_Group", new CardData{
             title = "Join a Study Group?",
-            description = "You’ve been invited to a weekly study group. It could help. Do you join?",
+            description = "You've been invited to a weekly study group. It could help. Do you join?",
             imageID = "study_group",
             unique = false,
             investment = false,
@@ -170,12 +170,12 @@ public class CardCollection : MonoBehaviour
                 new EffectData() {positive = true, text = "Study support and structure", action = () =>
                 { StatHandler.instance.SchoolPerformanceChange += 9f; } },
                 new EffectData() {positive = false, text = "Less time for yourself", action = () =>
-                { StatHandler.instance.MentalHealthChange -= 6f; } },
+                { StatHandler.instance.MentalHealthChange -= 5f; } },
             },
             left = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "More time for yourself and friends", action = () =>
-                { StatHandler.instance.MentalHealth += 4f; StatHandler.instance.SocialStanding += 4f; } },
+                { StatHandler.instance.MentalHealth += 5f; StatHandler.instance.SocialStanding += 4f; } },
                 new EffectData() {positive = false, text = "You fall behind on some topics", action = () =>
                 { StatHandler.instance.SchoolPerformance -= 10f; } },
             },
@@ -191,11 +191,11 @@ public class CardCollection : MonoBehaviour
                 new EffectData() {positive = true, text = "Builds your friendship", action = () =>
                 { StatHandler.instance.SocialStanding += 22f; } },
                 new EffectData() {positive = false, text = "Physically exhausting", action = () =>
-                { StatHandler.instance.MentalHealth -= 10f; } },
+                { StatHandler.instance.MentalHealth -= 8f; } },
             },
             left = new List<EffectData>
             {
-                new EffectData() {positive = false, text = "They’re a bit disappointed", action = () =>
+                new EffectData() {positive = false, text = "They're a bit disappointed", action = () =>
                 { StatHandler.instance.SocialStanding -= 8f; } },
             },
         }},
@@ -209,14 +209,14 @@ public class CardCollection : MonoBehaviour
             right = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "Cheaper and healthier", action = () =>
-                { StatHandler.instance.MoneyChange += 5f; StatHandler.instance.MentalHealthChange += 2f; } },
+                { StatHandler.instance.MoneyChange += 5f; StatHandler.instance.MentalHealthChange += 3f; } },
                 new EffectData() {positive = false, text = "Takes time and effort", action = () =>
                 { StatHandler.instance.SchoolPerformanceChange -= 2f; } },
             },
             left = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "Fast, easy, tasty", action = () =>
-                { StatHandler.instance.MentalHealthChange += 4f; } },
+                { StatHandler.instance.MentalHealthChange += 5f; } },
                 new EffectData() {positive = false, text = "Gets pricey over time", action = () =>
                 { StatHandler.instance.MoneyChange -= 8f; } },
             },
@@ -273,7 +273,7 @@ public class CardCollection : MonoBehaviour
             {
                 new EffectData() {positive = true, text = "Faster, less frustration", action = () =>
                 { StatHandler.instance.SchoolPerformanceChange += 5f; StatHandler.instance.MentalHealthChange += 2f; } },
-                new EffectData() {positive = false, text = "It’s expensive", action = () =>
+                new EffectData() {positive = false, text = "It's expensive", action = () =>
                 { StatHandler.instance.Money -= 800f; } },
             },
             left = new List<EffectData>
@@ -348,19 +348,12 @@ public class CardCollection : MonoBehaviour
             },
         }},
         {"Laundry_Choice", new CardData{
-            title = "Do Laundry at Home or Pay?",
+            title = "Go to a laundromat?",
             description = "You can use the laundromat or do laundry at your friend's place. Which do you choose?",
             imageID = "laundry_at_friends",
             unique = true,
             investment = false,
             right = new List<EffectData>
-            {
-                new EffectData() {positive = true, text = "Quick and easy", action = () =>
-                { StatHandler.instance.MentalHealthChange += 5f;  } },
-                new EffectData() {positive = false, text = "Laundry costs add up", action = () =>
-                { StatHandler.instance.MoneyChange -= 10f; } },
-            },
-            left = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "You save a bit weekly", action = () =>
                 { StatHandler.instance.MoneyChange += 5f; } },
@@ -369,10 +362,17 @@ public class CardCollection : MonoBehaviour
                 new EffectData() {positive = false, text = "Takes more time and effort", action = () =>
                 { StatHandler.instance.MentalHealthChange -= 4f; } },
             },
+            left = new List<EffectData>
+            {
+                new EffectData() {positive = true, text = "Quick and easy", action = () =>
+                { StatHandler.instance.MentalHealthChange += 5f;  } },
+                new EffectData() {positive = false, text = "Laundry costs add up", action = () =>
+                { StatHandler.instance.MoneyChange -= 10f; } },
+            },
         }},
         {"Buy_Friend_Gift", new CardData{
             title = "Buy a Gift for a Friend?",
-            description = "Your friend’s birthday is coming up. Do you spend money on a gift?",
+            description = "Your friend's birthday is coming up. Do you spend money on a gift?",
             imageID = "gift_for_friend",
             unique = false,
             investment = false,
@@ -395,7 +395,7 @@ public class CardCollection : MonoBehaviour
         }},
         {"Cancel_Club_Membership", new CardData{
             title = "Cancel Club Membership?",
-            description = "You’re rarely using your student club membership. Cancel it to save money?",
+            description = "You're rarely using your student club membership. Cancel it to save money?",
             imageID = "club_membership",
             unique = true,
             investment = false,
@@ -416,7 +416,7 @@ public class CardCollection : MonoBehaviour
         }},
         {"Sell_Old_Textbooks", new CardData{
             title = "Sell Some Old Textbooks?",
-            description = "You’ve finished your classes. Sell your old textbooks or keep them?",
+            description = "You've finished your classes. Sell your old textbooks or keep them?",
             imageID = "sell_books",
             unique = false,
             investment = false,
@@ -452,7 +452,7 @@ public class CardCollection : MonoBehaviour
                 { } },
             },
         }},
-        {"Laptop_Breaks", new CardData{ //Change
+        {"Laptop_Breaks", new CardData{
             title = "Laptop Breaks Down",
             description = "Your laptop dies right before a deadline. Repairs are costly. Do you want to repair it?",
             imageID = "computer_crash",
@@ -465,7 +465,7 @@ public class CardCollection : MonoBehaviour
                 new EffectData() {positive = false, text = "It's expensive", action = () =>
                 { StatHandler.instance.Money -= 300f; } },
                 new EffectData() {positive = false, text = "The stress lingers", action = () =>
-                { StatHandler.instance.MentalHealth -= 15f; } },
+                { StatHandler.instance.MentalHealth -= 12f; } },
             },
             left = new List<EffectData>
             {
@@ -488,19 +488,19 @@ public class CardCollection : MonoBehaviour
                 new EffectData() {positive = false, text = "Large upfront cost", action = () =>
                 { StatHandler.instance.Money -= 100f; } },
                 new EffectData() {positive = false, text = "You sacrifice flexibility", action = () =>
-                { StatHandler.instance.MentalHealth -= 3f; } },
+                { StatHandler.instance.MentalHealth -= 2f; } },
             },
             left = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "You keep your cash liquid", action = () =>
-                { StatHandler.instance.MentalHealth += 2f; } },
+                { StatHandler.instance.MentalHealth += 3f; } },
                 new EffectData() {positive = false, text = "You miss out on deals", action = () =>
                 { StatHandler.instance.MoneyChange -= 2f; } },
             },
         }},
         {"Free_Pizza_Night", new CardData{
             title = "Free Pizza Night?",
-            description = "A student group is hosting free pizza. You’re invited. Do you go?",
+            description = "A student group is hosting free pizza. You're invited. Do you go?",
             imageID = "pizza_party",
             unique = false,
             investment = false,
@@ -514,7 +514,7 @@ public class CardCollection : MonoBehaviour
             left = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "Stay home and rest", action = () =>
-                { StatHandler.instance.MentalHealth += 12f; } },
+                { StatHandler.instance.MentalHealth += 13f; } },
                 new EffectData() {positive = false, text = "You miss out", action = () =>
                 { StatHandler.instance.SocialStanding -= 7f; } },
             },
@@ -530,12 +530,12 @@ public class CardCollection : MonoBehaviour
                 new EffectData() {positive = true, text = "Gain financial control", action = () =>
                 { StatHandler.instance.MoneyChange += 15f; } },
                 new EffectData() {positive = false, text = "Takes time to track everything", action = () =>
-                { StatHandler.instance.MentalHealthChange -= 4f; } },
+                { StatHandler.instance.MentalHealthChange -= 3f; } },
             },
             left = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "Less stress for now", action = () =>
-                { StatHandler.instance.MentalHealth += 25f; } },
+                { StatHandler.instance.MentalHealth += 14f; } },
                 new EffectData() {positive = false, text = "Overspending continues", action = () =>
                 { StatHandler.instance.MoneyChange -= 4f; } },
             },
@@ -549,8 +549,8 @@ public class CardCollection : MonoBehaviour
             right = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "Nice treat for the week", action = () =>
-                { StatHandler.instance.MentalHealth += 15f;  } },
-                new EffectData() {positive = false, text = "Now your budget’s tight", action = () =>
+                { StatHandler.instance.MentalHealth += 18f;  } },
+                new EffectData() {positive = false, text = "Now your budget's tight", action = () =>
                 { StatHandler.instance.Money -= 45f; } },
             },
             left = new List<EffectData>
@@ -558,7 +558,7 @@ public class CardCollection : MonoBehaviour
                 new EffectData() {positive = true, text = "Restraint pays off economically", action = () =>
                 { StatHandler.instance.Money += 25f; } },
                 new EffectData() {positive = false, text = "You miss out on comfort", action = () =>
-                { StatHandler.instance.MentalHealth -= 8f; } },
+                { StatHandler.instance.MentalHealth -= 6f; } },
             },
         }},
         {"Ignore_Small_Fine", new CardData{
@@ -570,7 +570,7 @@ public class CardCollection : MonoBehaviour
             right = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "Debt cleared, no stress", action = () =>
-                { StatHandler.instance.MentalHealth += 15f; } },
+                { StatHandler.instance.MentalHealth += 18f; } },
                 new EffectData() {positive = false, text = "It costs a little", action = () =>
                 { StatHandler.instance.Money -= 70f; } },
             },
@@ -605,7 +605,7 @@ public class CardCollection : MonoBehaviour
         }},
         {"Skip_Weekly_Groceries", new CardData{
             title = "Skip This Week's Groceries?",
-            description = "You’re low on money. You could skip groceries this week to save. Risk it?",
+            description = "You're low on money. You could skip groceries this week to save. Risk it?",
             imageID = "skip_groceries",
             unique = false,
             investment = false,
@@ -614,26 +614,26 @@ public class CardCollection : MonoBehaviour
                 new EffectData() {positive = true, text = "You stretch your budget", action = () =>
                 { StatHandler.instance.Money += 80f; } },
                 new EffectData() {positive = false, text = "You feel sluggish and unfocused", action = () =>
-                { StatHandler.instance.MentalHealth -= 20f; StatHandler.instance.SchoolPerformance -= 12f; } },
+                { StatHandler.instance.MentalHealth -= 18f; StatHandler.instance.SchoolPerformance -= 12f; } },
             },
             left = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "You stay well-fed", action = () =>
-                { StatHandler.instance.MentalHealth += 15f; } },
+                { StatHandler.instance.MentalHealth += 18f; } },
                 new EffectData() {positive = false, text = "Tighter budget ahead", action = () =>
                 { StatHandler.instance.Money -= 80f; } },
             },
         }},
         {"Buy_Cheap_Desk_Chair", new CardData{
             title = "Buy a Cheap Desk Chair?",
-            description = "Your chair is awful. You found a cheap alternative, but won’t last. Do you buy it?",
+            description = "Your chair is awful. You found a cheap alternative, but won't last. Do you buy it?",
             imageID = "buy_cheap_chair",
             unique = false,
             investment = false,
             right = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "Immediate comfort", action = () =>
-                { StatHandler.instance.MentalHealth += 5f; StatHandler.instance.Money -= 40f; } },
+                { StatHandler.instance.MentalHealth += 6f; StatHandler.instance.Money -= 40f; } },
                 new EffectData() {positive = false, text = "Breaks again soon", action = () =>
                 { StatHandler.instance.MoneyChange -= 6f; } },
             },
@@ -646,7 +646,7 @@ public class CardCollection : MonoBehaviour
             },
         }},
         {"Delay_Utility_Bill", new CardData{
-            title = "Pay a Bill Now or Delay It?",
+            title = "Pay your bills immediately?",
             description = "You received your electricity bill. Pay it now or hold off until next week?",
             imageID = "pay_bills",
             unique = false,
@@ -654,13 +654,13 @@ public class CardCollection : MonoBehaviour
             right = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "Clean slate, no stress", action = () =>
-                { StatHandler.instance.MentalHealth += 15f; } },
+                { StatHandler.instance.MentalHealth += 18f; } },
                 new EffectData() {positive = false, text = "Paying bills ain't free", action = () =>
                 { StatHandler.instance.Money -= 90f; } },
             },
             left = new List<EffectData>
             {
-                new EffectData() {positive = true, text = "More room in this week’s budget", action = () =>
+                new EffectData() {positive = true, text = "More room in this week's budget", action = () =>
                 { StatHandler.instance.Money += 30f; } },
                 new EffectData() {positive = false, text = "They'll notice eventually", action = () =>
                 { StatHandler.instance.MoneyChange -= 10f; } },
@@ -675,7 +675,7 @@ public class CardCollection : MonoBehaviour
             right = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "You feel good helping out", action = () =>
-                { StatHandler.instance.MentalHealthChange += 6f; } },
+                { StatHandler.instance.MentalHealthChange += 7f; } },
                 new EffectData() {positive = false, text = "Need to cut back elsewhere", action = () =>
                 { StatHandler.instance.Money -= 25f; } },
             },
@@ -684,7 +684,7 @@ public class CardCollection : MonoBehaviour
                 new EffectData() {positive = true, text = "You save your money", action = () =>
                 { } },
                 new EffectData() {positive = false, text = "You feel a bit guilty", action = () =>
-                { StatHandler.instance.MentalHealth -= 3f; } },
+                { StatHandler.instance.MentalHealth -= 2f; } },
             },
         }},
         {"Pay_For_Cleaning", new CardData{
@@ -696,7 +696,7 @@ public class CardCollection : MonoBehaviour
             right = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "Clean space, clear mind", action = () =>
-                { StatHandler.instance.MentalHealth += 18f; } },
+                { StatHandler.instance.MentalHealth += 20f; } },
                 new EffectData() {positive = false, text = "Gotta pay up", action = () =>
                 { StatHandler.instance.Money -= 50f; } },
                 new EffectData() {positive = false, text = "Feels a little indulgent", action = () =>
@@ -707,7 +707,7 @@ public class CardCollection : MonoBehaviour
                 new EffectData() {positive = true, text = "You save the money", action = () =>
                 { } },
                 new EffectData() {positive = false, text = "Gotta clean yourself", action = () =>
-                { StatHandler.instance.MentalHealth -= 15f; } },
+                { StatHandler.instance.MentalHealth -= 12f; } },
             },
         }},
         {"Help_Uncle_Move", new CardData{
@@ -721,12 +721,12 @@ public class CardCollection : MonoBehaviour
                 new EffectData() {positive = true, text = "He gives you some cash", action = () =>
                 { StatHandler.instance.Money += 150f; } },
                 new EffectData() {positive = false, text = "You're sore and tired", action = () =>
-                { StatHandler.instance.MentalHealth -= 8f; } },
+                { StatHandler.instance.MentalHealth -= 6f; } },
             },
             left = new List<EffectData>
             {
                 new EffectData() {positive = false, text = "You stay home an rest", action = () =>
-                { StatHandler.instance.MentalHealth += 4f; } },
+                { StatHandler.instance.MentalHealth += 5f; } },
                 new EffectData() {positive = false, text = "You feel a bit bad", action = () =>
                 { StatHandler.instance.SocialStanding -= 5f; } },
             },
@@ -741,7 +741,7 @@ public class CardCollection : MonoBehaviour
             right = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "It becomes a weekly highlight", action = () =>
-                { StatHandler.instance.SocialStandingChange += 7f; StatHandler.instance.MentalHealthChange += 3f; } },
+                { StatHandler.instance.SocialStandingChange += 7f; StatHandler.instance.MentalHealthChange += 4f; } },
                 new EffectData() {positive = false, text = "Less time on your hands", action = () =>
                 { StatHandler.instance.SchoolPerformanceChange -= 5f; } },
             },
@@ -760,14 +760,14 @@ public class CardCollection : MonoBehaviour
             right = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "Comfort food and love", action = () =>
-                { StatHandler.instance.MentalHealth += 6f; StatHandler.instance.SocialStanding += 8f; } },
+                { StatHandler.instance.MentalHealth += 7f; StatHandler.instance.SocialStanding += 8f; } },
                 new EffectData() {positive = true, text = "Save money on dinner", action = () =>
                 { StatHandler.instance.Money += 15f; } },
             },
             left = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "You stay in and rest instead", action = () =>
-                { StatHandler.instance.MentalHealth += 15f; } },
+                { StatHandler.instance.MentalHealth += 18f; } },
             },
         }},
         {"Join_Theatre_Crew", new CardData{
@@ -784,7 +784,7 @@ public class CardCollection : MonoBehaviour
                 new EffectData() {positive = true, text = "There is much to learn", action = () =>
                 { StatHandler.instance.SchoolPerformanceChange += 3f; } },
                 new EffectData() {positive = false, text = "Time-consuming commitment", action = () =>
-                { StatHandler.instance.MentalHealthChange -= 4f; } },
+                { StatHandler.instance.MentalHealthChange -= 3f; } },
             },
             left = new List<EffectData>
             {
@@ -803,13 +803,13 @@ public class CardCollection : MonoBehaviour
             {
                 new EffectData() {positive = true, text = "You get paid fast", action = () =>
                 { StatHandler.instance.Money += 120f; } },
-                new EffectData() {positive = false, text = "It’s exhausting work", action = () =>
-                { StatHandler.instance.MentalHealth -= 15f; } },
+                new EffectData() {positive = false, text = "It's exhausting work", action = () =>
+                { StatHandler.instance.MentalHealth -= 12f; } },
             },
             left = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "You relax this weekend", action = () =>
-                { StatHandler.instance.MentalHealth += 6f; } },
+                { StatHandler.instance.MentalHealth += 7f; } },
                 new EffectData() {positive = false, text = "Missed extra income", action = () =>
                 { } },
             },
@@ -824,7 +824,7 @@ public class CardCollection : MonoBehaviour
             {
                 new EffectData() {positive = true, text = "If it works, you double up", action = () =>
                 { StatHandler.instance.Money -= 200f; StatHandler.instance.MoneyChange += 5f; } },
-                new EffectData() {positive = false, text = "It’s riskier than it seems", action = () =>
+                new EffectData() {positive = false, text = "It's riskier than it seems", action = () =>
                 { StatHandler.instance.MoneyChange -= 10f; } },
             },
             left = new List<EffectData>
@@ -837,7 +837,7 @@ public class CardCollection : MonoBehaviour
         }},
         {"All_Nighter_Plan", new CardData{
             title = "Pull an All-Nighter?",
-            description = "You’ve got momentum. Do you stay up late to finish next week’s assignments early?",
+            description = "You've got momentum. Do you stay up late to finish next week's assignments early?",
             imageID = "all_nighter_plan",
             unique = false,
             investment = false,
@@ -846,13 +846,13 @@ public class CardCollection : MonoBehaviour
                 new EffectData() {positive = true, text = "You stay ahead of the curve", action = () =>
                 { StatHandler.instance.SchoolPerformance += 15f; } },
                 new EffectData() {positive = false, text = "You burn out midweek", action = () =>
-                { StatHandler.instance.MentalHealth -= 10f; StatHandler.instance.MentalHealthChange -= 5f; StatHandler.instance.SchoolPerformanceChange -= 5f; } },
+                { StatHandler.instance.MentalHealth -= 8f; StatHandler.instance.MentalHealthChange -= 4f; StatHandler.instance.SchoolPerformanceChange -= 5f; } },
             },
             left = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "You rest and pace yourself", action = () =>
-                { StatHandler.instance.MentalHealth += 15f; } },
-                new EffectData() {positive = false, text = "You’re a little behind schedule", action = () =>
+                { StatHandler.instance.MentalHealth += 18f; } },
+                new EffectData() {positive = false, text = "You're a little behind schedule", action = () =>
                 { StatHandler.instance.SchoolPerformance -= 8f; } },
             },
         }},
@@ -872,21 +872,21 @@ public class CardCollection : MonoBehaviour
             left = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "You show maturity", action = () =>
-                { StatHandler.instance.MentalHealth += 10f; StatHandler.instance.SocialStandingChange += 3f; } },
+                { StatHandler.instance.MentalHealth += 12f; StatHandler.instance.SocialStandingChange += 3f; } },
                 new EffectData() {positive = false, text = "You feel slightly left out", action = () =>
                 { StatHandler.instance.SocialStanding -= 5f; } },
             },
         }},
         {"Smart_Youtube_Video", new CardData{
             title = "Watch a 'Smart' Video?",
-            description = "You’re meant to study, but that educational video looks interesting. Watch it instead?",
+            description = "You're meant to study, but that educational video looks interesting. Watch it instead?",
             imageID = "smart_youtube_video",
             unique = false,
             investment = false,
             right = new List<EffectData>
             {
-                new EffectData() {positive = true, text = "It’s informative and relaxing", action = () =>
-                { StatHandler.instance.MentalHealth += 10f; } },
+                new EffectData() {positive = true, text = "It's informative and relaxing", action = () =>
+                { StatHandler.instance.MentalHealth += 12f; } },
                 new EffectData() {positive = false, text = "But not on topic", action = () =>
                 { StatHandler.instance.SchoolPerformance -= 14f; } },
             },
@@ -895,19 +895,19 @@ public class CardCollection : MonoBehaviour
                 new EffectData() {positive = true, text = "You stay focused on studying", action = () =>
                 { StatHandler.instance.SchoolPerformance += 16f; } },
                 new EffectData() {positive = false, text = "You miss a small mental break", action = () =>
-                { StatHandler.instance.MentalHealth -= 6f; } },
+                { StatHandler.instance.MentalHealth -= 5f; } },
             },
         }},
         {"Limited_Time_Meal_Deal", new CardData{
             title = "Grab the Meal Deal?",
-            description = "Your favorite fast-food chain has a limited-time combo deal. It’s still more than cooking at home. Do you get it?",
+            description = "Your favorite fast-food chain has a limited-time combo deal. It's still more than cooking at home. Do you get it?",
             imageID = "limited_time_meal_deal",
             unique = false,
             investment = false,
             right = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "Tasty and convenient", action = () =>
-                { StatHandler.instance.MentalHealth += 4f; StatHandler.instance.Money -= 50f; } },
+                { StatHandler.instance.MentalHealth += 5f; StatHandler.instance.Money -= 50f; } },
                 new EffectData() {positive = false, text = "Not great for your wallet long-term", action = () =>
                 { StatHandler.instance.MoneyChange -= 5f; } },
             },
@@ -915,20 +915,20 @@ public class CardCollection : MonoBehaviour
             {
                 new EffectData() {positive = true, text = "You save by eating in", action = () =>
                 { StatHandler.instance.Money += 10f; } },
-                new EffectData() {positive = false, text = "Feels like you’re missing out", action = () =>
-                { StatHandler.instance.MentalHealth -= 2f; } },
+                new EffectData() {positive = false, text = "Feels like you're missing out", action = () =>
+                { StatHandler.instance.MentalHealth -= 1f; } },
             },
         }},
         {"Casino_Night", new CardData{
             title = "Test your luck?",
-            description = "Your friends are going to the casino for fun. You’ve got a bit of extra cash. Do you join them?",
+            description = "Your friends are going to the casino for fun. You've got a bit of extra cash. Do you join them?",
             imageID = "casino_night",
             unique = false,
             investment = false,
             right = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "Thrill and laughs with friends", action = () =>
-                { StatHandler.instance.MentalHealth += 10f; StatHandler.instance.SocialStanding += 7f; } },
+                { StatHandler.instance.MentalHealth += 12f; StatHandler.instance.SocialStanding += 7f; } },
                 new EffectData() {positive = false, text = "The losses sting later", action = () =>
                 { StatHandler.instance.Money -= 60f; StatHandler.instance.MoneyChange -= 8f; } },
             },
@@ -952,19 +952,19 @@ public class CardCollection : MonoBehaviour
                 new EffectData() {positive = true, text = "Steady weekend income", action = () =>
                 { StatHandler.instance.MoneyChange += 50f; } },
                 new EffectData() {positive = false, text = "Less time for rest and friends", action = () =>
-                { StatHandler.instance.MentalHealthChange -= 4f; StatHandler.instance.SocialStandingChange -= 2f; } },
+                { StatHandler.instance.MentalHealthChange -= 3f; StatHandler.instance.SocialStandingChange -= 2f; } },
             },
             left = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "You keep your weekends free", action = () =>
-                { StatHandler.instance.MentalHealth += 15f; } },
+                { StatHandler.instance.MentalHealth += 18f; } },
                 new EffectData() {positive = false, text = "You miss steady income", action = () =>
                 { } },
             },
         }},
         {"Study_Club_Leadership", new CardData{
             title = "Join Study Club Leadership?",
-            description = "They ask if you’ll take on a leadership role. It’s more work, but it looks great. Accept?",
+            description = "They ask if you'll take on a leadership role. It's more work, but it looks great. Accept?",
             imageID = "study_club_leader",
             unique = true,
             investment = true,
@@ -975,12 +975,12 @@ public class CardCollection : MonoBehaviour
                 new EffectData() {positive = true, text = "Great on your resume", action = () =>
                 { StatHandler.instance.SchoolPerformanceChange += 8f; StatHandler.instance.SocialStandingChange += 4f; } },
                 new EffectData() {positive = false, text = "Extra coordination and stress", action = () =>
-                { StatHandler.instance.MentalHealthChange -= 5f; } },
+                { StatHandler.instance.MentalHealthChange -= 4f; } },
             },
             left = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "You avoid extra pressure", action = () =>
-                { StatHandler.instance.MentalHealth += 15f; } },
+                { StatHandler.instance.MentalHealth += 18f; } },
                 new EffectData() {positive = false, text = "You miss a leadership opportunity", action = () =>
                 { StatHandler.instance.SchoolPerformanceChange -= 8f; } },
             },
@@ -994,15 +994,15 @@ public class CardCollection : MonoBehaviour
             requiredTrigger = "bought_car",
             right = new List<EffectData>
             {
-                new EffectData() {positive = true, text = "You’re a hero to your friends", action = () =>
+                new EffectData() {positive = true, text = "You're a hero to your friends", action = () =>
                 { StatHandler.instance.SocialStanding += 25f; } },
                 new EffectData() {positive = false, text = "Fuel costs and fatigue", action = () =>
-                { StatHandler.instance.Money -= 40f; StatHandler.instance.MentalHealth -= 6f; } },
+                { StatHandler.instance.Money -= 40f; StatHandler.instance.MentalHealth -= 5f; } },
             },
             left = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "You prioritize your own schedule", action = () =>
-                { StatHandler.instance.MentalHealth += 10f; } },
+                { StatHandler.instance.MentalHealth += 12f; } },
                 new EffectData() {positive = false, text = "You seem less helpful", action = () =>
                 { StatHandler.instance.SocialStanding -= 8f; } },
             },
@@ -1019,7 +1019,7 @@ public class CardCollection : MonoBehaviour
                 new EffectData() {positive = true, text = "Big social win", action = () =>
                 { StatHandler.instance.SocialStandingChange += 6f; } },
                 new EffectData() {positive = false, text = "More prep and commitment", action = () =>
-                { StatHandler.instance.MentalHealthChange -= 3f; } },
+                { StatHandler.instance.MentalHealthChange -= 2f; } },
             },
             left = new List<EffectData>
             {
@@ -1041,19 +1041,19 @@ public class CardCollection : MonoBehaviour
                 new EffectData() {positive = true, text = "They agree!", action = () =>
                 { StatHandler.instance.MoneyChange += 25f; } },
                 new EffectData() {positive = false, text = "They expect more now", action = () =>
-                { StatHandler.instance.MentalHealthChange -= 3f; } },
+                { StatHandler.instance.MentalHealthChange -= 2f; } },
             },
             left = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "You stay in your comfort zone", action = () =>
-                { StatHandler.instance.MentalHealth += 10f; } },
+                { StatHandler.instance.MentalHealth += 12f; } },
                 new EffectData() {positive = false, text = "You miss a chance for more", action = () =>
                 { StatHandler.instance.SocialStanding -= 6f; } },
             },
         }},
         {"Start_Tutoring_Program", new CardData{
             title = "Start a Tutoring Program?",
-            description = "You’re asked to organize peer tutoring at school. It’ll take effort. Do you do it?",
+            description = "You're asked to organize peer tutoring at school. It'll take effort. Do you do it?",
             imageID = "tutoring_program",
             unique = true,
             investment = true,
@@ -1062,13 +1062,13 @@ public class CardCollection : MonoBehaviour
             {
                 new EffectData() {positive = true, text = "Great experience and community respect", action = () =>
                 { StatHandler.instance.SchoolPerformanceChange += 10f; StatHandler.instance.SocialStandingChange += 6f; } },
-                new EffectData() {positive = false, text = "It’s very time-consuming", action = () =>
-                { StatHandler.instance.MentalHealthChange -= 6f; } },
+                new EffectData() {positive = false, text = "It's very time-consuming", action = () =>
+                { StatHandler.instance.MentalHealthChange -= 5f; } },
             },
             left = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "You keep your free time", action = () =>
-                { StatHandler.instance.MentalHealth += 5f; } },
+                { StatHandler.instance.MentalHealth += 6f; } },
                 new EffectData() {positive = false, text = "Your club is a bit let down", action = () =>
                 { StatHandler.instance.SocialStanding -= 4f; } },
             },
@@ -1097,7 +1097,7 @@ public class CardCollection : MonoBehaviour
         }},
         {"Weekly_Cooking_Offer", new CardData{
             title = "Cook for Friends Weekly?",
-            description = "Your friends loved your cooking. They ask if you’ll do it every week. Say yes?",
+            description = "Your friends loved your cooking. They ask if you'll do it every week. Say yes?",
             imageID = "weekly_meal_prep",
             unique = true,
             investment = false,
@@ -1109,7 +1109,7 @@ public class CardCollection : MonoBehaviour
                 new EffectData() {positive = true, text = "You get some economic help", action = () =>
                 { StatHandler.instance.MoneyChange += 15f;  } },
                 new EffectData() {positive = false, text = "It takes a lot of time", action = () =>
-                { StatHandler.instance.MentalHealthChange -= 4f; } },
+                { StatHandler.instance.MentalHealthChange -= 3f; } },
             },
             left = new List<EffectData>
             {
@@ -1128,7 +1128,7 @@ public class CardCollection : MonoBehaviour
             right = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "Regular workouts clear your head", action = () =>
-                { StatHandler.instance.MentalHealthChange += 6f; } },
+                { StatHandler.instance.MentalHealthChange += 7f; } },
                 new EffectData() {positive = false, text = "Ongoing payment", action = () =>
                 { StatHandler.instance.MoneyChange -= 15f; } },
             },
@@ -1136,7 +1136,7 @@ public class CardCollection : MonoBehaviour
             {
                 new EffectData() {positive = true, text = "Save the membership cost", action = () => { } },
                 new EffectData() {positive = false, text = "Miss a chance to boost health", action = () =>
-                { StatHandler.instance.MentalHealth -= 10f; } },
+                { StatHandler.instance.MentalHealth -= 8f; } },
             },
         }},
         {"Nature_Walk_Habit", new CardData{
@@ -1148,7 +1148,7 @@ public class CardCollection : MonoBehaviour
             right = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "Nature heals the mind", action = () =>
-                { StatHandler.instance.MentalHealthChange += 5f; } },
+                { StatHandler.instance.MentalHealthChange += 6f; } },
                 new EffectData() {positive = false, text = "Slight missed study and friend time", action = () =>
                 { StatHandler.instance.SchoolPerformanceChange -= 1f; StatHandler.instance.SocialStandingChange -= 1f; } },
             },
@@ -1156,7 +1156,7 @@ public class CardCollection : MonoBehaviour
             {
                 new EffectData() {positive = true, text = "No new habits formed", action = () => { } },
                 new EffectData() {positive = false, text = "You miss peaceful downtime", action = () =>
-                { StatHandler.instance.MentalHealth -= 8f; } },
+                { StatHandler.instance.MentalHealth -= 6f; } },
             },
         }},
         {"Join_Meditation_Group", new CardData{
@@ -1168,15 +1168,15 @@ public class CardCollection : MonoBehaviour
             right = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "You become more balanced", action = () =>
-                { StatHandler.instance.MentalHealthChange += 7f; } },
-                new EffectData() {positive = true, text = "Small weekly membership fee", action = () =>
+                { StatHandler.instance.MentalHealthChange += 8f; } },
+                new EffectData() {positive = false, text = "Small weekly membership fee", action = () =>
                 { StatHandler.instance.MoneyChange -= 10f; } },
             },
             left = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "Save your money", action = () => { } },
                 new EffectData() {positive = false, text = "High stress remains", action = () =>
-                { StatHandler.instance.MentalHealth -= 10f; } },
+                { StatHandler.instance.MentalHealth -= 8f; } },
             },
         }},
         {"Buy_Study_Desk", new CardData{
@@ -1231,7 +1231,7 @@ public class CardCollection : MonoBehaviour
         }},
         {"Invest_Local_Cafe", new CardData{
             title = "Invest in Local Café?",
-            description = "A classmate’s cousin is opening a café and offers you a small stake. Interested?",
+            description = "A classmate's cousin is opening a café and offers you a small stake. Interested?",
             imageID = "invest_local_cafe",
             unique = true,
             investment = true,
@@ -1254,7 +1254,7 @@ public class CardCollection : MonoBehaviour
             left = new List<EffectData>
             {
                 new EffectData() {positive = true, text = "Avoid risky ventures", action = () => { } },
-                new EffectData() {positive = false, text = "It might’ve become the next hotspot", action = () =>
+                new EffectData() {positive = false, text = "It might've become the next hotspot", action = () =>
                 { StatHandler.instance.MentalHealth -= 8f; } },
             },
         }},
@@ -1282,7 +1282,7 @@ public class CardCollection : MonoBehaviour
             },
             left = new List<EffectData>
             {
-                new EffectData() {positive = true, text = "You don’t take the risk", action = () => { } },
+                new EffectData() {positive = true, text = "You don't take the risk", action = () => { } },
                 new EffectData() {positive = false, text = "You might regret not trying", action = () =>
                 { StatHandler.instance.MentalHealth -= 12f; } },
             },

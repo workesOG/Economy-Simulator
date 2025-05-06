@@ -18,8 +18,6 @@ public class DraggableCard : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 
     public CardData cardData;
     public string cardKey;
-    //public List<EffectData> leftEffects;
-    //public List<EffectData> rightEffects;
 
     private Vector2 originalPosition;
 

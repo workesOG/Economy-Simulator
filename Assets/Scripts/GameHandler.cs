@@ -162,12 +162,6 @@ public class GameHandler : MonoBehaviour
         {
             usedUniqueKeys.Add(cardKey);
         }
-
-        /*List<EffectData> effects = choseRight ? card.right : card.left;
-        foreach (var effect in effects)
-        {
-            effect.action.Invoke();
-        }*/
     }
 
     private void InstantiateCard(CardData cardData, string cardKey)
@@ -206,7 +200,13 @@ public class GameHandler : MonoBehaviour
     public void UpdateStatIndicators()
     {
         StatHandler statHandler = StatHandler.instance;
-        statIndicators[0].text = $"{GetArrowString(statHandler.MoneyChange / 10)}";
+        float totalMoneyChange = statHandler.MoneyChange;
+        foreach (Investment investment in StatHandler.instance.Investments)
+        {
+            totalMoneyChange += ((investment.Amount * investment.Returns) - investment.Amount) / investment.Rate;
+            totalMoneyChange -= investment.Recurring / investment.Rate;
+        }
+        statIndicators[0].text = $"{GetArrowString(totalMoneyChange / 20)}";
         statIndicators[1].text = $"{GetArrowString(statHandler.MentalHealthChange)}";
         statIndicators[2].text = $"{GetArrowString(statHandler.SocialStandingChange)}";
         statIndicators[3].text = $"{GetArrowString(statHandler.SchoolPerformanceChange)}";

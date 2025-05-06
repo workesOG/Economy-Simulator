@@ -11,17 +11,6 @@ public class InvestmentCollection : MonoBehaviour
         if (instance == null)
             instance = this;
     }
-
-    public static Dictionary<string, Investment> Cards = new Dictionary<string, Investment>()
-    {
-        {"Stocks", new Investment()
-        {
-            Name = "Stocks",
-            Amount = 800,
-            Returns = 1.08f,
-            Rate = 4,
-        }}
-    };
 }
 
 public class Investment
@@ -44,6 +33,7 @@ public class Investment
             statHandler.Money += (Amount * Returns) - Amount;
             Amount += (Amount * Returns) - Amount;
             Amount += Recurring;
+            statHandler.Money -= Recurring;
             weeksPassed = 0;
         }
     }
